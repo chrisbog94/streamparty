@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="2150ae56-8c9e-4595-83b1-a83a90005169" name="TKI Server" url="https://streamparty.com">
+        <fileTransfer host="tki.cbog.me" port="22" rootFolder="/home/streamparty/streamparty/StreamParty" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

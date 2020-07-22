@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block header %}
+    <link rel="stylesheet" href="/assets/css/twitch.css?8">
+    <script src="/assets/js/twitch.js?7"></script>
+{% endblock %}
+
+{% block content %}
+    <body onload="" style="margin:0px;">
+    <img src="https://streamparty.me/assets/images/default_backdrop.jpg"
+         style="position:absolute;width: 85%;height: 60%;">
+    <div id="stage">
+        <div class="twitch_player">
+            <iframe
+                    class="twitch_iframe"
+                    src="https://player.twitch.tv/?channel={{ channel }}&parent=streamparty.me"
+                    frameborder="0"
+                    scrolling="no"
+                    allowfullscreen="false"
+                    muted="false">
+            </iframe>
+        </div>
+        <canvas id="audience" style="position:absolute; bottom: 0px; left: 0px; width:100%; height:20%;"></canvas>
+    </div>
+
+    <iframe frameborder="0"
+            scrolling="no"
+            id="twitch_chat"
+            src="https://www.twitch.tv/embed/{{ channel }}/chat?parent=streamparty.me&te-theme=dark"
+            style=""
+    >
+    </iframe>
+
+    </body>
+    </html>
+
+{% endblock %}
