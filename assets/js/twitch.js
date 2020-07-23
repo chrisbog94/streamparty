@@ -27,22 +27,6 @@ const cycleLoop = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
 frameCount = 0;
 
 avatars = [];
-
-window.addEventListener('load', function () {
-    canvas = document.getElementById('audience');
-    ctx = canvas.getContext('2d');
-    canvas.height = canvas.getBoundingClientRect().height;
-    canvas.width = canvas.getBoundingClientRect().width;
-    generateAvatars(1000);
-
-    // for(i = 0; i <= 4; i++){
-    //     randomAvatar = avatar_images[Math.floor(Math.random() * avatar_images.length)];
-    //
-    //
-    // };
-});
-
-
 function generateAvatars(numOfAvatars) {
     for (i = 0; i < numOfAvatars; i++) {
         randomAvatar = Math.floor(Math.random() * avatar_images.length);

@@ -1,14 +1,30 @@
 {% extends "layout.html" %}
 
 {% block header %}
-    <link rel="stylesheet" href="/assets/css/twitch.css?8">
-    <script src="/assets/js/twitch.js?7"></script>
+    <link rel="stylesheet" href="/assets/css/twitch.css">
+    <script src="/assets/js/twitch.js"></script>
+        <script>
+        window.addEventListener('load', function () {
+            canvas = document.getElementById('audience');
+            ctx = canvas.getContext('2d');
+            canvas.height = canvas.getBoundingClientRect().height;
+            canvas.width = canvas.getBoundingClientRect().width;
+            console.log('generating {{ viewers }} avatars');
+            generateAvatars({{ viewers }});
+
+            // for(i = 0; i <= 4; i++){
+            //     randomAvatar = avatar_images[Math.floor(Math.random() * avatar_images.length)];
+            //
+            //
+            // };
+        });
+    </script>
 {% endblock %}
 
 {% block content %}
+
     <body onload="" style="margin:0px;">
-    <img src="https://streamparty.me/assets/images/default_backdrop.jpg"
-         style="position:absolute;width: 85%;height: 60%;">
+    <img src="{{ banner }}" style="width: 100%;">
     <div id="stage">
         <div class="twitch_player">
             <iframe
@@ -26,7 +42,7 @@
     <iframe frameborder="0"
             scrolling="no"
             id="twitch_chat"
-            src="https://www.twitch.tv/embed/{{ channel }}/chat?parent=streamparty.me&te-theme=dark"
+            src="https://www.twitch.tv/embed/{{ channel }}/chat?parent=streamparty.me"
             style=""
     >
     </iframe>
