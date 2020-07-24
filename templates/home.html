@@ -3,7 +3,7 @@
 {% block header %}
     <link rel="stylesheet" href="/assets/css/twitch.css">
     <script src="/assets/js/twitch.js"></script>
-        <script>
+    <script>
         window.addEventListener('load', function () {
             canvas = document.getElementById('audience');
             ctx = canvas.getContext('2d');
@@ -23,9 +23,10 @@
 
 {% block content %}
 
-    <body onload="" style="margin:0px;">
+    <body style="margin:0px;">
     <img src="{{ banner }}" style="width: 100%;">
     <div id="stage">
+        <img src="/assets/images/stream_party.svg" id="stream_party_logo">
         <div class="twitch_player">
             <iframe
                     class="twitch_iframe"
@@ -48,6 +49,5 @@
     </iframe>
 
     </body>
-    </html>
 
-{% endblock %}
+{% endblock %}`

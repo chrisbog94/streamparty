@@ -36,6 +36,7 @@ def stream(request, channel):
 
 # returns streamer, viewers
 def getStream(featured=False, twitch_channel=''):
+    viewers = 1
     twitch_headers = {'Accept': 'application/vnd.twitchtv.v5+json', 'Client-ID': twitch_client_id}
     if featured:
         featured_response = requests.request("GET", "https://api.twitch.tv/kraken/streams/featured?limit=1",
@@ -60,14 +61,14 @@ def getStream(featured=False, twitch_channel=''):
                                                           "https://api.twitch.tv/kraken/streams/" + str(twitch_id),
                                                           headers=twitch_headers)
         twitch_channel_lookup = json.loads(twitch_channel_lookup_response.text)
-
-        viewers = twitch_channel_lookup['stream']['viewers']
-        display_name = twitch_channel_lookup['stream']['channel']['display_name']
-        channel_id = twitch_channel_lookup['stream']['channel']['_id']
-        twitch_channel = twitch_channel_lookup['stream']['channel']['name']
-        bio = twitch_channel_lookup['stream']['channel']['description']
-        logo = twitch_channel_lookup['stream']['channel']['logo']
-        banner = twitch_channel_lookup['stream']['channel']['profile_banner']
+        if twitch_channel_lookup['stream'] != None:
+            viewers = twitch_channel_lookup['stream']['viewers']
+            display_name = twitch_channel_lookup['stream']['channel']['display_name']
+            channel_id = twitch_channel_lookup['stream']['channel']['_id']
+            twitch_channel = twitch_channel_lookup['stream']['channel']['name']
+            bio = twitch_channel_lookup['stream']['channel']['description']
+            logo = twitch_channel_lookup['stream']['channel']['logo']
+            banner = twitch_channel_lookup['stream']['channel']['profile_banner']
 
     if viewers > 5000:
         viewers = 5000
