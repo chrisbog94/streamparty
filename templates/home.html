@@ -1,53 +1,26 @@
 {% extends "layout.html" %}
 
-{% block header %}
-    <link rel="stylesheet" href="/assets/css/twitch.css">
-    <script src="/assets/js/twitch.js"></script>
-    <script>
-        window.addEventListener('load', function () {
-            canvas = document.getElementById('audience');
-            ctx = canvas.getContext('2d');
-            canvas.height = canvas.getBoundingClientRect().height;
-            canvas.width = canvas.getBoundingClientRect().width;
-            console.log('generating {{ viewers }} avatars');
-            generateAvatars({{ viewers }});
-
-            // for(i = 0; i <= 4; i++){
-            //     randomAvatar = avatar_images[Math.floor(Math.random() * avatar_images.length)];
-            //
-            //
-            // };
-        });
-    </script>
-{% endblock %}
-
 {% block content %}
+    <div id="banner_wrapper" style="height: 60%; background-image: url('{{ banner }}'); width: 85%; background-size: 100% 100%; background-repeat: no-repeat; position: absolute; top: 0; left: 0; z-index: -1;">
 
-    <body style="margin:0px;">
-    <img src="{{ banner }}" style="width: 100%;">
-    <div id="stage">
-        <img src="/assets/images/stream_party.svg" id="stream_party_logo">
-        <div class="twitch_player">
-            <iframe
-                    class="twitch_iframe"
-                    src="https://player.twitch.tv/?channel={{ channel }}&parent=streamparty.me"
-                    frameborder="0"
-                    scrolling="no"
-                    allowfullscreen="false"
-                    muted="false">
-            </iframe>
-        </div>
-        <canvas id="audience" style="position:absolute; bottom: 0px; left: 0px; width:100%; height:20%;"></canvas>
     </div>
-
-    <iframe frameborder="0"
-            scrolling="no"
-            id="twitch_chat"
-            src="https://www.twitch.tv/embed/{{ channel }}/chat?parent=streamparty.me"
-            style=""
-    >
-    </iframe>
-
-    </body>
-
-{% endblock %}`
+    <div id="stage" style="float: left; height: 85%; width: 85%;">
+        <img style="height: 100%; width: 100%; object-fit: fill" src="assets/images/concert_background.svg">
+        <div id="video_player"></div>
+    </div>
+    <div id="ad" style="float:right; height:15%; width:15%; background-color:lightblue; text-align:center;">
+        <div style="text-align:center">HTML5 Canvas</div>
+    </div>
+    <div id="chat" style="float: right; height:85%; width: 15%; background-color: yellow;">
+        <iframe frameborder="0"
+                scrolling="no"
+                id="twitch_chat_new"
+                src="https://www.twitch.tv/embed/sykkuno/chat?parent=streamparty.me"
+                style="height:100%; width:100%"
+        >
+        </iframe>
+    </div>
+    <div id="audience" style="position: absolute; bottom: 5%; left: 0; background-color: pink; height: 20%; width: 85%; opacity: .5;">
+        <canvas id="audience" style="height:100%; width:100%"></canvas>
+    </div>
+{% endblock %}

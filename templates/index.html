@@ -1,0 +1,48 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} {{ channel }} {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div id="banner_wrapper" style="height: 60%; background-image: url('{{ banner }}'); width: 85%; background-size: 100% 100%; background-repeat: no-repeat; position: absolute; top: 0; left: 0; z-index: -1;">
+
+    </div>
+    <div id="stage" style="float: left;">
+        <img style="height: 100%; width: 100%; object-fit: fill; position:relative;" src="assets/images/concert_background.svg">
+        <div>
+            <div id="video_player" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -54%); width: 54%; height: 70%; background-color: pink;"></div>
+        </div>
+    </div>
+    <div id="ad" style="float:right; background-color:lightblue; text-align:center;">
+        <div style="text-align:center">HTML5 Canvas</div>
+    </div>
+    <div id="twitch_chat" style="float: right; background-color: yellow;">
+        <iframe frameborder="0"
+                scrolling="no"
+                id="twitch_chat_new"
+                src="https://www.twitch.tv/embed/{{ channel }}/chat?parent=streamparty.me"
+                style="height:100%; width:100%"
+        >
+        </iframe>
+    </div>
+    <div id="audience" style=" position: relative; background-color: pink; bottom: 5%; /* left: 230px; */ height: 20%; opacity: .5; float: left;">
+        <canvas id="audience" style="height:100%; width:100%"></canvas>
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+    <script>
+        $(document).ready(function () {
+            // Javascript method's body can be found in assets/js/demos.js
+            demo.initDashboardPageCharts();
+
+        });
+    </script>
+
+{% endblock javascripts %}

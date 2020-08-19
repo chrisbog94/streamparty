@@ -25,7 +25,7 @@ SECRET_KEY = '(2!=88g8a+ttq*u9v(7&l92)llk(2jh1f=8grr$zgi=$_fhet1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["streamparty.me", "127.0.0.1"]
+ALLOWED_HOSTS = ["streamparty.me", "www.streamparty.me", "127.0.0.1"]
 
 
 # Application definition

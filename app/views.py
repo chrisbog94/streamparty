@@ -12,6 +12,7 @@ default_banner = '/assets/images/backdrops/default_backdrop.jpg'
 
 # Create your views here.
 
+
 def home(request):
     streamer, viewers = getStream(featured=True, twitch_channel='')
     if streamer.banner is None:
@@ -19,7 +20,7 @@ def home(request):
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'home.html', {'channel': streamer.name, 'viewers': viewers, 'banner': streamer.banner}
+        'index.html', {'channel': streamer.name, 'viewers': viewers, 'banner': streamer.banner}
     )
 
 

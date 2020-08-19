@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
+from django.views.generic import TemplateView
 
 import app.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', app.views.home),
-    re_path('(?P<channel>[\w|_|-]+)', app.views.stream)
+    path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
+    re_path('(?P<channel>[\w|_|-]+)', app.views.stream),
 ]
