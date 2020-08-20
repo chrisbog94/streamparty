@@ -1,5 +1,11 @@
 {% extends "layouts/base.html" %}
 
+{% load i18n %}
+{% load account socialaccount %}
+
+
+
+
 {% block title %} Login {% endblock %} 
 
 <!-- Specific Page CSS goes HERE  -->
@@ -25,7 +31,7 @@
 
                         Use default credentials: test / ApS12_ZZs8
                         <br />
-                        OR <a href={% url 'register' %} >create your own user</a>
+                        OR <a href= >create your own user</a>
 
                       {% endif %}  
                   </h6>
@@ -58,7 +64,7 @@
                 <div class="card-footer">
                   <button type="submit" name="login" class="btn btn-fill btn-primary">Login</button>
                   &nbsp; &nbsp;
-                  Don't have an account? <a href="{% url 'register' %}" class="text-primary">Create</a>
+                  Don't have an account? <a href="" class="text-primary">Create</a>
                 </div>
 
               </form>

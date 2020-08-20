@@ -1,54 +1,61 @@
 <!-- Static assets -->
 {% load static %}
+{% load socialaccount %}
+
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navigation">
-
-            {#            {% if user.is_authenticated %}#}
             <ul class="navbar-nav ml-auto">
                 <li class="search-bar input-group">
                     <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i class="tim-icons icon-zoom-split"></i>
                         <span class="d-lg-none d-md-block">Search</span>
                     </button>
                 </li>
-                <li class="dropdown nav-item">
-                    <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                        <div class="notification d-none d-lg-block d-xl-block"></div>
-                        <i class="tim-icons icon-sound-wave"></i>
-                        <p class="d-lg-none">
-                            Notifications
-                        </p>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
-                        <li class="nav-link"><a href="#" class="nav-item dropdown-item">Mike John responded to your email</a></li>
-                        <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">You have 5 more tasks</a></li>
-                        <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Your friend Michael is in town</a></li>
-                        <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another notification</a></li>
-                        <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another one</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown nav-item">
-                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                        <div class="photo">
-                            <img src="{% static 'img/anime3.png' %}" alt="Profile Photo">
-                        </div>
-                        <b class="caret d-none d-lg-block d-xl-block"></b>
-                        <p class="d-lg-none">
-                            Log out
-                        </p>
-                    </a>
-                    <ul class="dropdown-menu dropdown-navbar">
-                        <li class="nav-link"><a href="/page-user.html" class="nav-item dropdown-item">Profile</a></li>
-                        <li class="dropdown-divider"></li>
-                        {#                  <li class="nav-link"><a href="{% url 'logout' %}" class="nav-item dropdown-item">Log out</a></li>#}
-                    </ul>
-                </li>
+                {% if user.is_authenticated %}
+                    <li class="dropdown nav-item">
+                        <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <div class="notification d-none d-lg-block d-xl-block"></div>
+                            <i class="tim-icons icon-sound-wave"></i>
+                            <p class="d-lg-none">
+                                Notifications
+                            </p>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
+                            <li class="nav-link"><a href="#" class="nav-item dropdown-item">Mike John responded to your email</a></li>
+                            <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">You have 5 more tasks</a></li>
+                            <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Your friend Michael is in town</a></li>
+                            <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another notification</a></li>
+                            <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another one</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <div class="photo">
+                                <img src="{% static 'img/anime3.png' %}" alt="Profile Photo">
+                            </div>
+                            <b class="caret d-none d-lg-block d-xl-block"></b>
+                            <p class="d-lg-none">
+                                Log out
+                            </p>
+                        </a>
+                        <ul class="dropdown-menu dropdown-navbar">
+                            <li class="nav-link"><a href="/page-user.html" class="nav-item dropdown-item">Profile</a></li>
+                            <li class="dropdown-divider"></li>
+                            {#                  <li class="nav-link"><a href="{% url 'logout' %}" class="nav-item dropdown-item">Log out</a></li>#}
+                        </ul>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a href="{% provider_login_url "twitch" %}" id="connect-with-twitch" class="btn button-twitch" data-platform="twitch" style="align-items: center; background-color: rgb(145, 70, 255) !important; background-image: none; color: white; display:flex; height: 30px; margin-top:6px; padding-bottom:14px; padding-left:14px; padding-right:14px; padding-top: 14px; FONT-WEIGHT: 100; width: 225px;">
+                            <i class="fab fa-twitch" style="left:14px; position:absolute; width:20px;"></i>
+                            <span style="font-family: Roboto; font-size: 16px; margin-left: 37px;margin-right: 37px; width: 80%;">Twitch</span>
+                        </a>
+                    </li>
+                {% endif %}
                 <li class="separator d-lg-none"></li>
             </ul>
-            {#            {% endif %}#}
-
         </div>
     </div>
 </nav>
@@ -67,12 +74,9 @@
 
 
 <div data-color="black" class="sidebar ps">
-    <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-mini">
+    <div class="logo"><a href="https://streamparty.me" class="simple-text logo-mini">
         <div class="logo-image"><img src="/assets/images/stream_party.svg"></div>
-    </a><a href="http://www.creative-tim.com" class="simple-text logo-normal"> Vue NUD PRO </a>
-        <div class="navbar-minimize">
-            <button id="minimizeSidebar" class="btn btn-outline-white btn-icon btn-round"><i class="now-ui-icons text_align-center visible-on-sidebar-regular"></i><i class="now-ui-icons design_bullet-list-67 visible-on-sidebar-mini"></i></button>
-        </div>
+    </a><a href="https://streamparty.me" class="simple-text logo-normal"> StreamParty </a>
     </div>
     <div class="sidebar-wrapper ps ps--active-x">
         <ul class="nav">

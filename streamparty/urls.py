@@ -14,8 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, re_path
+from django.urls import path, re_path, include
 from django.views.generic import TemplateView
+
 
 import app.views
 
@@ -23,5 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', app.views.home),
     path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
-    re_path('(?P<channel>[\w|_|-]+)', app.views.stream),
+    path('account/', include('allauth.urls')),
+    #re_path('(?P<channel>[\w|_|-]+)', app.views.stream), #This needs to be at the end
 ]
