@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import streamparty.secrets as secrets
 
 SITE_ID = 1
 
@@ -21,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '(2!=88g8a+ttq*u9v(7&l92)llk(2jh1f=8grr$zgi=$_fhet1'
+SECRET_KEY = secrets.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -90,20 +91,7 @@ WSGI_APPLICATION = 'streamparty.wsgi.application'
 # }
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'streamparty',
-        'USER': 'streamparty',
-        'PASSWORD': 'mfK5iwWnOCGYKxef',
-        'HOST': 'streamparty.cbog.me',
-        'PORT': '5432',
-    }
-    #     'default': {
-    #         'ENGINE': 'django.db.backends.sqlite3',
-    #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    #     }
-}
+DATABASES = secrets.DATABASES
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

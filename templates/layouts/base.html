@@ -33,6 +33,10 @@
 </head>
 
 <body class="sidebar-mini">
+{% csrf_token %}
+<script>
+const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+</script>
 <div class="wrapper">
 
     {% include 'includes/sidebar.html' %}

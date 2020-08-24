@@ -25,5 +25,6 @@ urlpatterns = [
     path('', app.views.home),
     path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
     path('account/', include('allauth.urls')),
-    #re_path('(?P<channel>[\w|_|-]+)', app.views.stream), #This needs to be at the end
+    path('viewerlookup/', app.views.receiveViewers),
+    re_path('(?P<channel>[\w|_|-]+)', app.views.stream), #This needs to be at the end
 ]

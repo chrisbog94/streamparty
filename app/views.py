@@ -1,10 +1,13 @@
 import json
 from datetime import datetime
 
-from django.http import HttpRequest
+from django.contrib.auth.models import User
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 import requests
 from app.models import *
+from django.views.decorators.csrf import csrf_exempt
+from django.core import serializers
 
 twitch_client_id = 'mkfo0b5r43pvu51772vyxmlohqv4hb'
 default_banner = '/assets/images/backdrops/default_backdrop.jpg'
@@ -29,7 +32,7 @@ def stream(request, channel):
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'twitch.html', {'channel': streamer.name, 'viewers': viewers, 'banner': streamer.banner}
+        'index.html', {'channel': streamer.name, 'viewers': viewers, 'banner': streamer.banner}
     )
 
 
@@ -71,7 +74,7 @@ def getStream(featured=False, twitch_channel=''):
 
     if viewers > 5000:
         viewers = 5000
-    streamer, created = Streamers.objects.get_or_create(name=twitch_channel)
+    streamer, created = Streamer.objects.get_or_create(name=twitch_channel)
     if created:
         streamer.display_name = display_name
         streamer.channel_id = channel_id
@@ -80,3 +83,49 @@ def getStream(featured=False, twitch_channel=''):
         streamer.banner = banner
         streamer.save()
     return streamer, viewers
+    pass
+
+
+def getViewers():
+    pass
+
+
+@csrf_exempt
+def receiveViewers(request):
+    if 'viewers[]' in request.POST:
+        avatar_list = {}
+        viewers = request.POST.getlist('viewers[]')
+        if len(viewers) <= 11:
+            for viewer in viewers:
+                user_lookup = User.objects.filter(username=viewer).first()
+                if user_lookup:
+                    avatar_lookup = UsertoAvatar.objects.filter(user_id=user_lookup.pk).first()
+                    if avatar_lookup:
+                        avatar = Avatar.objects.filter(width=3400).filter(height=220).order_by('?').first()
+                        avatar_list.update({viewer: [avatar.back, avatar.height, avatar.width, avatar.frames, 'VIP']})
+                else:
+                    avatar = Avatar.objects.get(pk=697)
+                    avatar_list.update({viewer: [avatar.back, avatar.height, avatar.width, avatar.frames, 'PLEB']})
+                # avatar_list.append();
+            avatars = json.dumps(avatar_list)
+            return HttpResponse(avatars, content_type="text/json-comment-filtered")
+    else:
+        return None
+
+# def importAvatars():
+# import os
+# from app.models import Avatar
+# files = os.listdir('./assets/images/avatars/back')
+# for file in files:
+#     new_avatar = Avatar.objects.create(
+#         name=file,
+#         back='https://streamparty.me/assets/images/avatars/back/' + file,
+#         front='https://streamparty.me/assets/images/avatars/front/' + file,
+#         shadow='https://streamparty.me/assets/images/avatars/shadow/' + file,
+#         frames='20',
+#         width='3400',
+#         height='220',
+#         rarity='1'
+#     )
+#     new_avatar.save()
+#     print(file)

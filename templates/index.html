@@ -3,10 +3,14 @@
 {% block title %} {{ channel }} {% endblock %}
 
 <!-- Specific Page CSS goes HERE  -->
-{% block stylesheets %}{% endblock stylesheets %}
+{% block stylesheets %}
+
+{% endblock stylesheets %}
 
 {% block content %}
-    <div id="stage" style="float: left; position: relative; max-height: 85%; min-height: 100px; background-image: url(https://static-cdn.jtvnw.net/jtv_user_pictures/chess24-profile_banner-5975186c1fb35554-480.png); background-size: 100% 100%; background-repeat: no-repeat;">
+    <div id="stage" style="float: left; position: relative; max-height: 85%; min-height: 100px; background-image: url({{ banner }}); background-size: 100% 100%; background-repeat: no-repeat;">
+        <button onclick="getAvatars(['anon']);">Add pleb</button>
+        <button onclick="getAvatars(['root']);">Add vip</button>
         <img class="img-fluid" src='/assets/images/concert_background.svg'>
         <div style="position:absolute; width: 52%; left: 24%; top: 12%;">
             <div class="embed-responsive embed-responsive-16by9">
@@ -37,15 +41,22 @@
 
 <!-- Specific Page JS goes HERE  -->
 {% block javascripts %}
+    <script>
 
+    </script>
     <script>
         window.addEventListener('load', function () {
             canvas = document.getElementById('audience');
             ctx = canvas.getContext('2d');
             canvas.height = canvas.getBoundingClientRect().height;
             canvas.width = canvas.getBoundingClientRect().width;
-            generateAvatar('Anon');
+            {% if user.is_authenticated %}
+                getAvatars(['{{ user.get_username }}']);
+            {% else %}
+                getAvatars(['anonymous']);
+            {% endif %}
             init();
+            buildAudiance('{{ channel }}');
         });
     </script>
 

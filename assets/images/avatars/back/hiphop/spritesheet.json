@@ -1,0 +1,355 @@
+{
+	"frames": {
+		"hiphop-s01.png": {
+			"frame": {
+				"x": 1,
+				"y": 1,
+				"w": 3400,
+				"h": 220
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 3400,
+				"h": 220
+			},
+			"sourceSize": {
+				"w": 3400,
+				"h": 220
+			}
+		},
+		"hiphop-s02.png": {
+			"frame": {
+				"x": 1,
+				"y": 223,
+				"w": 3400,
+				"h": 220
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 3400,
+				"h": 220
+			},
+			"sourceSize": {
+				"w": 3400,
+				"h": 220
+			}
+		},
+		"hiphop01.png": {
+			"frame": {
+				"x": 1,
+				"y": 445,
+				"w": 3400,
+				"h": 220
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 3400,
+				"h": 220
+			},
+			"sourceSize": {
+				"w": 3400,
+				"h": 220
+			}
+		},
+		"hiphop02.png": {
+			"frame": {
+				"x": 1,
+				"y": 667,
+				"w": 3400,
+				"h": 220
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 3400,
+				"h": 220
+			},
+			"sourceSize": {
+				"w": 3400,
+				"h": 220
+			}
+		},
+		"hiphop03.png": {
+			"frame": {
+				"x": 1,
+				"y": 889,
+				"w": 3400,
+				"h": 220
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 3400,
+				"h": 220
+			},
+			"sourceSize": {
+				"w": 3400,
+				"h": 220
+			}
+		},
+		"hiphop04.png": {
+			"frame": {
+				"x": 1,
+				"y": 1111,
+				"w": 3400,
+				"h": 220
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 3400,
+				"h": 220
+			},
+			"sourceSize": {
+				"w": 3400,
+				"h": 220
+			}
+		},
+		"hiphop05.png": {
+			"frame": {
+				"x": 1,
+				"y": 1333,
+				"w": 3400,
+				"h": 220
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 3400,
+				"h": 220
+			},
+			"sourceSize": {
+				"w": 3400,
+				"h": 220
+			}
+		},
+		"hiphop06.png": {
+			"frame": {
+				"x": 1,
+				"y": 1555,
+				"w": 3400,
+				"h": 220
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 3400,
+				"h": 220
+			},
+			"sourceSize": {
+				"w": 3400,
+				"h": 220
+			}
+		},
+		"hiphop07.png": {
+			"frame": {
+				"x": 1,
+				"y": 1777,
+				"w": 3400,
+				"h": 220
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 3400,
+				"h": 220
+			},
+			"sourceSize": {
+				"w": 3400,
+				"h": 220
+			}
+		},
+		"hiphop08.png": {
+			"frame": {
+				"x": 1,
+				"y": 1999,
+				"w": 3400,
+				"h": 220
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 3400,
+				"h": 220
+			},
+			"sourceSize": {
+				"w": 3400,
+				"h": 220
+			}
+		},
+		"hiphop09.png": {
+			"frame": {
+				"x": 1,
+				"y": 2221,
+				"w": 3400,
+				"h": 220
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 3400,
+				"h": 220
+			},
+			"sourceSize": {
+				"w": 3400,
+				"h": 220
+			}
+		},
+		"hiphop10.png": {
+			"frame": {
+				"x": 1,
+				"y": 2443,
+				"w": 3400,
+				"h": 220
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 3400,
+				"h": 220
+			},
+			"sourceSize": {
+				"w": 3400,
+				"h": 220
+			}
+		},
+		"hiphop11.png": {
+			"frame": {
+				"x": 1,
+				"y": 2665,
+				"w": 3400,
+				"h": 220
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 3400,
+				"h": 220
+			},
+			"sourceSize": {
+				"w": 3400,
+				"h": 220
+			}
+		},
+		"hiphop12.png": {
+			"frame": {
+				"x": 1,
+				"y": 2887,
+				"w": 3400,
+				"h": 220
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 3400,
+				"h": 220
+			},
+			"sourceSize": {
+				"w": 3400,
+				"h": 220
+			}
+		},
+		"hiphop13.png": {
+			"frame": {
+				"x": 1,
+				"y": 3109,
+				"w": 3400,
+				"h": 220
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 3400,
+				"h": 220
+			},
+			"sourceSize": {
+				"w": 3400,
+				"h": 220
+			}
+		},
+		"hiphop14.png": {
+			"frame": {
+				"x": 1,
+				"y": 3331,
+				"w": 3400,
+				"h": 220
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 3400,
+				"h": 220
+			},
+			"sourceSize": {
+				"w": 3400,
+				"h": 220
+			}
+		},
+		"hiphop15.png": {
+			"frame": {
+				"x": 1,
+				"y": 3553,
+				"w": 3400,
+				"h": 220
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 3400,
+				"h": 220
+			},
+			"sourceSize": {
+				"w": 3400,
+				"h": 220
+			}
+		}
+	},
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 3402,
+			"h": 3774
+		},
+		"scale": "1"
+	}
+}
