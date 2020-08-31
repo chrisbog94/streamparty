@@ -60,7 +60,7 @@ function buildAudiance(streamer) {
             console.log('resolving ' + viewers.length + ' viewers')
             resolveViewers = []
             for (var i = 0, len = viewers.length; i < len; i++) {
-                if (resolveViewers.length >= 10) {
+                if (resolveViewers.length >= 25) {
                     getAvatars(resolveViewers);
                     resolveViewers = [];
                 }

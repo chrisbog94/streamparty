@@ -163,6 +163,6 @@ SOCIALACCOUNT_EMAIL_REQUIRED = ACCOUNT_EMAIL_REQUIRED
 SOCIALACCOUNT_STORE_TOKENS = True
 SOCIALACCOUNT_PROVIDERS = {
     'twitch': {
-        'SCOPE': [ 'user_read', 'user_subscriptions' ]
+        'SCOPE': ['user_read', 'user_subscriptions' ]
     },
 }

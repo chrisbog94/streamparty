@@ -95,7 +95,7 @@ def receiveViewers(request):
     if 'viewers[]' in request.POST:
         avatar_list = {}
         viewers = request.POST.getlist('viewers[]')
-        if len(viewers) <= 11:
+        if len(viewers) <= 25:
             for viewer in viewers:
                 user_lookup = User.objects.filter(username=viewer).first()
                 if user_lookup:
@@ -104,7 +104,7 @@ def receiveViewers(request):
                         avatar = Avatar.objects.filter(width=3400).filter(height=220).order_by('?').first()
                         avatar_list.update({viewer: [avatar.back, avatar.height, avatar.width, avatar.frames, 'VIP']})
                 else:
-                    avatar = Avatar.objects.get(pk=697)
+                    avatar = Avatar.objects.filter(release_pack__name='base')
                     avatar_list.update({viewer: [avatar.back, avatar.height, avatar.width, avatar.frames, 'PLEB']})
                 # avatar_list.append();
             avatars = json.dumps(avatar_list)
@@ -112,20 +112,24 @@ def receiveViewers(request):
     else:
         return None
 
-# def importAvatars():
 # import os
 # from app.models import Avatar
-# files = os.listdir('./assets/images/avatars/back')
-# for file in files:
-#     new_avatar = Avatar.objects.create(
-#         name=file,
-#         back='https://streamparty.me/assets/images/avatars/back/' + file,
-#         front='https://streamparty.me/assets/images/avatars/front/' + file,
-#         shadow='https://streamparty.me/assets/images/avatars/shadow/' + file,
-#         frames='20',
-#         width='3400',
-#         height='220',
-#         rarity='1'
-#     )
-#     new_avatar.save()
-#     print(file)
+# base_dir = './assets/images/avatars/back'
+# folders = os.listdir(base_dir)
+# for folder in folders:
+#     rp, created = ReleasePack.objects.get_or_create(name=folder)
+#     files = os.listdir(base_dir + '/' + folder)
+#     for file in files:
+#         new_avatar = Avatar.objects.create(
+#             name=file[:-4],
+#             back='https://streamparty.me/assets/images/avatars/back/' + folder + '/' + file,
+#             front='https://streamparty.me/assets/images/avatars/front/' + file,
+#             shadow='https://streamparty.me/assets/images/avatars/shadow/' + file,
+#             frames='20',
+#             width='3400',
+#             height='220',
+#             rarity='1',
+#             release_pack=rp
+#         )
+#         new_avatar.save()
+#         print(file)

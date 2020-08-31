@@ -6,6 +6,9 @@ from django.db import models
 
 # Create your models here.
 class Streamer(models.Model):
+    def __str__(self):
+        return self.display_name
+
     display_name = models.CharField(max_length=30, null=True)
     channel_id = models.IntegerField(null=True)
     name = models.TextField(null=True)
@@ -15,6 +18,9 @@ class Streamer(models.Model):
 
 
 class TwitchUser(models.Model):
+    def __str__(self):
+        return self.display_name
+
     display_name = models.CharField(max_length=30, null=True)
     email_address = models.EmailField(null=True)
     streamparty_member = models.BooleanField(default=False)
@@ -22,11 +28,17 @@ class TwitchUser(models.Model):
 
 
 class ReleasePack(models.Model):
+    def __str__(self):
+        return self.name
+
     name = models.CharField(null=True, max_length=30)
     release_date = models.DateTimeField(null=True)
 
 
 class Avatar(models.Model):
+    def __str__(self):
+        return self.name
+
     name = models.CharField(max_length=30)
     back = models.URLField(max_length=200)
     front = models.URLField(max_length=200)
